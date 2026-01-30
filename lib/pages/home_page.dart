@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
 );
     }
   }
-  
+  // TODO: functions to implement: fetchState, saveState, startAllClickers, clearAllClickers, and mount/destroy logic
 
 
   @override

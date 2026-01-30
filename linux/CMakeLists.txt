@@ -1,6 +1,7 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.13)
 project(runner LANGUAGES CXX)
+set(CMAKE_CXX_COMPILER "/usr/bin/g++-4.2")
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
