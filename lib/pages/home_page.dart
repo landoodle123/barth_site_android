@@ -32,6 +32,104 @@ class _HomePageState extends State<HomePage> {
       });
     }
   }
+
+  void reset() {
+    count = 0;
+    clickerCount = 0;
+    clickerCost = 100;
+    multiplierCost = 150;
+    clickerMultiplierCost = 1000;
+    clickerGain = 1;
+    amountGained = 1;
+    //TODO: clearAllClickers
+    //TODO: startAllClickers
+    //TODO: saveState
+  }
+
+  void buyClicker() {
+    if (count >= clickerCost) {
+      setState(() {
+        count -= clickerCost;
+        clickerCount += 1;
+        clickerCost = (clickerCost * 2.5).toInt();
+      });
+    }
+    else {
+      showDialog<bool>(
+  context: context,
+  builder: (BuildContext context) => AlertDialog(
+    title: const Text('Not enough clicks!'),
+    content: const Text('You do not have enough clicks to buy this item.'),
+    actions: [
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+        child: const Text(
+          'Okay',
+          style: TextStyle(color: Colors.black),
+        ),
+        onPressed: () => Navigator.pop(context, true),
+      ),
+    ],
+  ),
+);
+    }
+  }
+  void buyMultiplier() {
+    if (count >= multiplierCost) {
+      setState(() {
+        count -= multiplierCost;
+        amountGained = amountGained * 2;
+        multiplierCost = (multiplierCost * 3).toInt();
+      });
+    }
+    else {
+      showDialog<bool>(
+  context: context,
+  builder: (BuildContext context) => AlertDialog(
+    title: const Text('Not enough clicks!'),
+    content: const Text('You do not have enough clicks to buy this item.'),
+    actions: [
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+        child: const Text(
+          'Okay',
+          style: TextStyle(color: Colors.black),
+        ),
+        onPressed: () => Navigator.pop(context, true),
+      ),
+    ],
+  ),
+);
+    }
+  }
+  void buyClickerMultiplier() {
+    if (count >= clickerMultiplierCost) {
+      setState(() {
+        count -= clickerMultiplierCost;
+        clickerGain += 1;
+        clickerMultiplierCost = (clickerMultiplierCost * 2.5).toInt();
+      });
+    }
+    else {
+      showDialog<bool>(
+  context: context,
+  builder: (BuildContext context) => AlertDialog(
+    title: const Text('Not enough clicks!'),
+    content: const Text('You do not have enough clicks to buy this item.'),
+    actions: [
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+        child: const Text(
+          'Okay',
+          style: TextStyle(color: Colors.black),
+        ),
+        onPressed: () => Navigator.pop(context, true),
+      ),
+    ],
+  ),
+);
+    }
+  }
   
 
 
